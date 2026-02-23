@@ -10,9 +10,10 @@
 <body>
 <div class="container-sm">
     <div class="card-body">
+        <h1 class="card-title">Delete User:</h1>
         <h2 class="card-title">Enter Your Name</h2>
 
-        <form action="/name" method="POST">
+        <form action="/delete" method="POST">
             <div class="form-group">
                 <label for="FirstName">First Name</label>
                 <input type="text" name="FirstName" required class="form-control">
@@ -21,7 +22,7 @@
                 <label for="LastName">Last Name</label>
                 <input type="text" name="LastName" required class="form-control">
             </div>
-            <button type="submit" class="btn btn-primary">Insert</button>
+            <button type="submit" class="btn btn-primary">Delete</button>
             <a class="btn btn-success" href="/" role="button">Go Back</a>
         </form>
     </div>
