@@ -10,7 +10,7 @@ host = 'http://127.0.0.1:5000/'
 def index():
     return render_template('index.html')
 
-
+# Route for handling input form
 @app.route('/name', methods=['POST', 'GET'])
 def name():
     error = None
@@ -23,6 +23,7 @@ def name():
             error = 'invalid input name'
     return render_template('input.html', error=error, result=result)
 
+# Route for handling delete form
 @app.route('/delete', methods=['POST', 'GET'])
 def delete():
     error = None
@@ -52,8 +53,10 @@ def valid_delete(first_name, last_name):
     cursor = connection.execute('SELECT * FROM users;')
     return cursor.fetchall()
 
+# Helper function to load database contents
 def get_database():
     connection = sql.connect('database.db')
+    connection.execute('CREATE TABLE IF NOT EXISTS users(pid INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT, lastname TEXT);')
     cursor = connection.execute('SELECT * FROM users;')
     return cursor.fetchall()
 

@@ -8,7 +8,9 @@
     <title></title>
 </head>
 <body>
+<!-- Main container for index.html -->
 <div class="container-sm">
+    <!-- Header of page -->
     <div style="text-align: left;">
         <div style="font-weight: bold;">
             <h1>Hospital Patient Portal</h1>
@@ -16,13 +18,29 @@
         <div>
             <h5>This portal allows users to add and delete patient names from the hospital's database.</h5>
         </div>
-    <div class="card-body" align="center">
-        <a class="btn btn-success" href="/name" role="button">Add Patient Name</a>
-    </div>
-    <div class="card-body" align="center">
-        <a class="btn btn-success" href="/delete" role="button">Delete Patient Name</a>
+    <!-- Dropdown  and submit button for user to select action -->
+    <div align="center" style="padding: 1rem;">
+        <select style="margin-bottom: 1rem;">
+            <option value="input">Add Patient Name</option>
+            <option value="delete">Delete Patient Name</option>
+        </select>
+        <br />
+        <button onclick="onSelect()">Go!</button>
     </div>
 </div>
+
+<!-- Helper function to handle dropdown selection -->
+<script>
+    function onSelect() {
+        var select = document.querySelector('select');
+        var value = select.value;
+        if (value === 'input') {
+            window.location.href = '/name';
+        } else if (value === 'delete') {
+            window.location.href = '/delete';
+        }
+    }
+</script>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
